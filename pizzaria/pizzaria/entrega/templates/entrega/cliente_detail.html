@@ -1,0 +1,18 @@
+<html>
+<body>
+<h1>Ficha de Cliente</h1>
+<table border="1">
+<tr> 
+    <th>id</th> <td><a href="{{ cliente.get_absolute_url }}">{{ cliente.id }}</a></td>
+</tr>
+<tr>
+    <th>Nome</th>
+    <td>{{cliente.nome }}</td>
+</tr>
+<tr>
+    <th>Endereço</th>
+    <td>{{ cliente.endereco }}</td>
+</tr>
+</table>
+</body>
+</html>

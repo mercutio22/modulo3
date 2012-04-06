@@ -25,6 +25,9 @@ class Cliente(models.Model):
     def endereco(self):
         return '%s, %s' % (self.logradouro, self.numero)
     endereco.short_description = u'Endereço' #TRUQUE!!!!
+    
+    def get_absolute_url(self):
+        return '/entrega/cliente/{0}'.format(self.id)
 
 class Pedido(models.Model):
     inclusao = models.DateTimeField(auto_now_add=True) 
@@ -72,5 +75,5 @@ class Pizza(models.Model):
             sabor2 = self.sabor2
             if self.coberto2:
                 sabor2 += ' coberta'
-                sabor = u'½ %s, ½ %s' % (sabor, sabor2)
+                sabor = u'½ {0}, ½ {1}'.format(sabor, sabor2)
         return sabor
