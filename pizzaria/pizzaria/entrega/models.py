@@ -2,6 +2,8 @@
 from django.db import models
 
 class Cliente(models.Model):
+
+    
     nome = models.CharField(max_length=128, db_index=True)
     fone = models.CharField(max_length=16, db_index=True)
     ramal = models.CharField(max_length=4, blank=True)
@@ -26,8 +28,13 @@ class Cliente(models.Model):
         return '%s, %s' % (self.logradouro, self.numero)
     endereco.short_description = u'Endereço' #TRUQUE!!!!
     
+    @models.permalink
     def get_absolute_url(self):
-        return '/entrega/cliente/{0}'.format(self.id)
+        #return '/entrega/cliente/{0}'.format(self.id)
+        return ('ficha-cliente',
+                (),# urls.py positional args, vazio aqui.
+                {'pk':self.id} #urls.py kwargs      
+                )
 
 class Pedido(models.Model):
     inclusao = models.DateTimeField(auto_now_add=True) 
