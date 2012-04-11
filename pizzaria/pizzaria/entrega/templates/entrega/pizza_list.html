@@ -1,10 +1,12 @@
-<html>
-<body>
+{% extends 'base.html' %}
+{% block body %}
 <h1>Lista de pizzas a fazer</h1>
 <ol>
 {% for pizza in lista %}
     <li>{{pizza}}</li>
 {% endfor %}
 </ol>
-</body>
-</html>
+<figure></figure>
+<img src="{{ STATIC_URL }}planeta_pizza.png" width="120" />
+<caption>Astrônomos descobrem o novo planeta Saterpizza. DUH!</caption>
+{% endblock body %}

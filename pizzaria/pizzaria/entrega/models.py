@@ -1,6 +1,7 @@
 #coding=utf-8
 from django.db import models
 
+
 class Cliente(models.Model):
 
     
@@ -28,7 +29,7 @@ class Cliente(models.Model):
         return '%s, %s' % (self.logradouro, self.numero)
     endereco.short_description = u'Endereço' #TRUQUE!!!!
     
-    @models.permalink
+    @models.permalink #decorator. Retornar tupla de 3 valores: (nome da assoc. obj+view, parametros posic., parametros nomeados)
     def get_absolute_url(self):
         #return '/entrega/cliente/{0}'.format(self.id)
         return ('ficha-cliente',
