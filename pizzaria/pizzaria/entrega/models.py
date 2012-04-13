@@ -12,7 +12,7 @@ class Cliente(models.Model):
     logradouro = models.CharField(max_length=32, db_index=True)
     numero = models.PositiveIntegerField(u'número', db_index=True)
     complemento = models.CharField(max_length=32, blank=True)
-    obs = models.TextField(verbose_name=u'Observação')
+    obs = models.TextField(verbose_name=u'Observação', blank=True)
     
     class Meta:
         #Os campos a seguir devem ser únicos concatenados!

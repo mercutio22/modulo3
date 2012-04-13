@@ -16,5 +16,11 @@
     <td>{{ cliente.endereco }}</td>
 </tr>
 </table>
+
+<form action="{% url cliente-obs %}" method="POST" %} />
+{% csrf_token %}
+<input type="hidden" name="cliente_id" value="{{ cliente.id }}"/>
+{{ formulario_obs.as_p }}
+<input type="submit" name="atualizar observação" />
 </body>
 </html>
